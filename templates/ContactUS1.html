@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <!-- <link rel="stylesheet" href="contact.css"> -->
+    <link rel="stylesheet" href="{% static "style2.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        import Swup from 'swup';
+        const swup = new Swup();
+    </script>
+    <style>
+        
+        .thank {
+            font-size: 25px;
+            text-align: center;
+            margin-top: 22%;
+            margin-bottom: 3%;
+            
+        }
+        .button2
+        {
+            background-color: white;
+            color: #007cff;
+            justify-content: center;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            border-radius: 10px;
+            width: 200px;
+            margin-left: 40%;
+            margin-bottom: 17%;
+            border: 1px solid #007cff;
+            padding: 7px 10px 7px 10px;
+        }
+        .button2:hover{
+            background-color: #007cff;
+            color: white;
+            animation: normal;
+            animation-duration: 500ms;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="{% url 'home' %}">ERS</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'services' %}">Service</a></li>
+                <li class="active"><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <main id="swup" class="transition-fade main_container">
+
+        <div class="container">
+            {% if data %}
+            <div class="content">
+                <div class="left-side">
+                    <div class="address details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <div class="text-one">Charotar University Of Science & Technology</div>
+                        <div class="text-two">Changa, Anand,</div>
+                        <div class="text-three">Gujarat-388421</div>
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+91 9998000824</div>
+                        <div class="text-two">+91 9512117907</div>
+                        <div class="text-three">+91 8000985559</div>
+                    </div>
+                    <div class="email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">19dcs015@charusat.edu.in</div>
+                        <div class="text-two">19dcs016@charusat.edu.in</div>
+                        <div class="text-three">19dcs018@charusat.edu.in</div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="topic-text">Send us a message</div>
+                    <p>If you have any work from us or any type of query related to our website, you can send us message
+                        from here. It's our pleasure to help you.</p>
+
+                    <form action="/upload2" name="form2" method="post">
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <input type="text" name="name" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="email" placeholder="Enter your Email">
+                        </div>
+                        <div class="input-box message-box">
+                            <textarea name="txtarea" placeholder="How can we help you ?"></textarea>
+                        </div>
+                        <div class="button">
+                            <input type="submit" name="submit" style="padding: 8px 15px 8px 15px;" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <div class="container2 ">
+                <div class="thank">Thank <span style="color: #007cff;">You</span> For Contacting Us !</div>
+                <a href="{% url 'home' %}" class="button2">Get back to Home</a>
+            </div>
+            {% endif %}
+        </div>
+
+    </main>
+
+    <script>
+        $(document).ready(function () {
+  
+            $('ul.nav_links > li')
+                    .click(function (e) {
+                $('ul.nav_links> li')
+                    .removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+    
+    <script>
+        '{% if form.errors %}'
+            swal.fire({
+                icon: 'error',
+                title: 'Invalid data',
+                text: `{% for err in form.name.errors %}
+
+                        {{err}} 
+                
+                        {% endfor %}
+
+                        {% for err in form.email.errors %}
+
+                        {{err}}
+                
+                        {% endfor %}
+
+                        {% for err in form.txtarea.errors %}
+
+                        {{err}}
+                
+                        {% endfor %}
+
+                `,
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonColor: '#007cff',
+            })
+        '{% endif %}'
+    </script>
+</body>
+
+</html>

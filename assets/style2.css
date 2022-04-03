@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.nav-content{
+    display: flex;
+    /* background: linear-gradient(135deg, #92bcd8, #6cb0dd); */
+    justify-content:space-between;
+}
+
+.logo{
+    margin: 25px;
+    justify-items: center;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.logo a{
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.nav-links{
+    justify-items: center;
+    align-items: center;
+    margin: 20px;
+    padding-right: 50px;
+}
+
+.nav-links li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 20px;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.nav-links li a:hover{
+    color:#007cff;    
+    border-bottom: solid black 2px;
+
+}
+
+.nav-links .active a {
+    color:#007cff;    
+    border-bottom: solid black 2px;    
+}
+
+.context{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px 10px 200px;
+}
+
+.text-slogan{
+    width: 650px;
+    height: 300px;
+    padding-top: 100px;
+}
+.text-slogan h3{
+    font-size: 60px;
+}
+
+.text-slogan p{
+    margin-bottom: 50px;
+}
+
+.ex-btn{
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    background:#007cff ;
+    color: white;
+    font-size: 20px;
+}
+.ex-btn:hover{
+    color: #fff;
+}
+
+
+/* Contact us */
+.main_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px 60px 40px 40px;
+    box-shadow: 0 0px 60px rgb(0 124 255 / 30%);
+}
+.container .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.container .content .left-side{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+}
+.content .left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #007cff;
+}
+.content .left-side .details{
+    margin: 14px;
+    text-align: center;
+
+}
+.content .left-side .details i{
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 10px;  
+}
+.content .left-side .details .topic{
+    font-size: 18px;
+    font-weight: 600;
+    color: #007cff;
+
+}
+.content .left-side .details .text-one,
+.content .left-side .details .text-two,
+.content .left-side .details .text-three{
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+}
+.container .content .right-side{
+    width: 75%;
+    margin-left: 75px;
+    
+}
+.content .right-side .topic-text{
+    font-size: 23px;
+    font-weight: 600;
+    color: #007cff;
+}
+.right-side .input-box{
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+.right-side .input-box input,
+.right-side .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid #a8c6e6;
+    font-size: 16px;
+    font-weight: 500;
+    /* background: #a8c6e6; */
+    border-radius: 5px;
+    padding: 0 15px;
+}
+.right-side .message-box{
+    min-height: 110px;
+    margin-top: 6px;
+}
+.right-side .button{
+    display: inline-block;
+    margin-top: 6px;
+}
+.right-side .button input[type="button"]{
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #007cff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button input[type="button"]:hover{
+    background: #007cff;
+}
+@media (max-width: 945px){
+    .container{
+        width: 90%;
+        padding: 30px 35px 40px 35px;
+    }
+}
+@media (max-width: 815px){
+    .container{
+        margin: 40px 0;
+        height: 100%;
+
+    }
+    .container .content{
+        flex-direction: column-reverse;
+    }
+    .container .content .left-side{
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .container .content .left-side::before{
+        display: none;
+    }
+    .container .content .right-side{
+        width: 100%;
+        margin-left: 0;
+
+    }
+}
+
+.transition-fade {
+    transition: 1s;
+    opacity: 1;
+  }
+  
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+
+/* Service Page */
+.service_p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service_container{
+    max-width: 700px;
+    width: 100%;
+    /* max-height: 650px; */
+    /* height: 615px; */
+    height: fit-content;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0px 60px rgb(0 124 255 / 30%);
+}
+.service_container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+.service_container .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: #007cff;
+
+}
+
+/* .service_container .employee-details-form {
+    display: none;
+} */
+
+.service_container form .employee-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+form .employee-details .input-box{
+    margin: 20px 0 12px 0;
+    width: calc(100% / 2 - 20px);
+}
+.employee-details .input-box details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+
+}
+.employee-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 1px;
+    transition: all 0.3s ease;
+}
+.employee-details .input-box input:focus,
+.employee-details .input-box input:valid{
+    border-color: #007cff;
+
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #007cff;
+    border: 1px solid #007cff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: white;
+    letter-spacing: 1px;
+    /* background: linear-gradient(135deg, #91c2e4, #1e90db); */
+
+
+}
+
+form .button input:hover{
+    background: #007cff;
+    color: white;
+}
+@media (max-width: 584px){
+    .service_container{
+        max-width: 100%;
+    }
+    
+    form .employee-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+}
