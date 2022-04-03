@@ -48,6 +48,7 @@ def upload(request):
     form=Mlforms(request.POST)
     if form.is_valid():
         sal=request.POST['salary']
+        sal=str.lower(sal)
         prmtn=request.POST['promotion']
         exp=request.POST['exp']
         hrs=request.POST['hrs']
@@ -55,7 +56,8 @@ def upload(request):
         lperfev=request.POST['perc1']
         satisfl=request.POST['perc2']
         workacc=request.POST['workacc']
-        
+        if sal!='high' or sal!='low' or sal!='medium':
+            return render(request,'ERS.html',{'form':form})
         if sal=='high':
             s=[0,0]
         elif sal=='medium':
