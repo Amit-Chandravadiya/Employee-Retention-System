@@ -78,7 +78,7 @@ def upload(request):
         wa=int(workacc)
         
         cwd=os.getcwd()
-        loc=os.path.join(cwd,'main/DecisionTree.pkl')
+        loc=os.path.join(cwd,'main/RandomForest1.pkl')
         print(loc)    
         model=joblib.load(loc)
         
